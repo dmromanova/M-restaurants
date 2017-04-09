@@ -32,9 +32,9 @@ namespace M_reastaurants
             set { _service = value; }
         }
 
-        private int _price;
+        private string _price;
 
-        public int Price
+        public string Price
         {
             get { return _price; }
             set { _price = value; }
@@ -56,7 +56,7 @@ namespace M_reastaurants
             set { _foodType = value; }
         }
 
-        public Restaurant(string name, int decor, int service, int price, string location, string foodtype)
+        public Restaurant(string name, int decor, int service, string price, string location, string foodtype)
         {
             _name = name;
             _decor = decor;
