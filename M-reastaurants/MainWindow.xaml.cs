@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+
 
 namespace M_reastaurants
 {
@@ -20,11 +24,63 @@ namespace M_reastaurants
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private void buttonLog_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
+            LogWindow logWindow = new LogWindow();
+                logWindow.Show();
         }
 
-        
+             private void buttonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            SearchWindow searchWindow = new SearchWindow();
+            searchWindow.Show();
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxName.Text))
+            {
+                MessageBox.Show("Необходимо ввести название");
+                textBoxName.Focus();
+                return;
+            }
+
+            if (comboBoxDecor.SelectedItem == null)
+            {
+                MessageBox.Show("Необходимо оценить декор");
+                comboBoxDecor.Focus();
+                return;
+            }
+
+            if (comboBoxService.SelectedItem == null)
+            {
+                MessageBox.Show("Необходимо оценить сервис");
+                comboBoxService.Focus();
+                return;
+            }
+
+            if (comboBoxPrice.SelectedItem == null)
+            {
+                MessageBox.Show("Необходимо выбрать ценовую категорию");
+                comboBoxPrice.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBoxLocation.Text))
+            {
+                MessageBox.Show("Необходимо указать месторасположение");
+                textBoxLocation.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBoxType.Text))
+            {
+                MessageBox.Show("Необходимо указать тип кухни");
+                textBoxType.Focus();
+                return;
+            }
+        }
     }
 }

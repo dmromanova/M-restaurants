@@ -1,0 +1,20 @@
+﻿<Window x:Class="M_reastaurants.LogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:M_reastaurants"
+        mc:Ignorable="d"
+        Title="LogWindow" Height="204.64" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock x:Name="textBlockLog" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Логин" FontSize="16" VerticalAlignment="Top" Margin="10,39,0,0" Width="62" Height="22"/>
+        <TextBlock x:Name="textBlockPas" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Пароль" FontSize="16" VerticalAlignment="Top" Margin="10,84,0,0" Width="62" Height="21"/>
+        <TextBox x:Name="textBoxLog" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" Margin="86,43,0,0" RenderTransformOrigin="0.5,0.5">
+        </TextBox>
+        <TextBox x:Name="textBoxPas" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" Margin="86,86,0,0" RenderTransformOrigin="0.5,0.5">
+        </TextBox>
+        <Button x:Name="buttonLog" Content="Войти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="86,121,0,0" Click="buttonLog_Click"/>
+        <Button x:Name="buttonReg" Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="166,121,0,0" Click="buttonReg_Click"/>
+
+    </Grid>
+</Window>

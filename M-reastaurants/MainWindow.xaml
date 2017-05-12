@@ -17,17 +17,19 @@
         <TextBlock x:Name="textBlockPrice" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Цена" FontSize="14" VerticalAlignment="Top" Margin="10,122,0,0"/>
         <TextBlock x:Name="textBlockLocation" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Расположение" FontSize="14" VerticalAlignment="Top" Margin="10,156,0,0"/>
         <TextBlock x:Name="textBlockType" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Тип еды" FontSize="14" VerticalAlignment="Top" Height="22" Width="70" Margin="10,190,0,0"/>
-        <Button x:Name="buttonAdd" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="119,248,0,0" Height="27"/>
+        <Button x:Name="buttonAdd" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="30.2,238,0,0" Height="27" Grid.Column="1" Click="buttonAdd_Click"/>
         <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="195" Margin="119,21,0,0"/>
         <ComboBox x:Name="comboBoxDecor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="39" Margin="119,52,0,0">
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
             <ComboBoxItem>4</ComboBoxItem>
             <ComboBoxItem>5</ComboBoxItem>
         </ComboBox>
         <ComboBox x:Name="comboBoxService" HorizontalAlignment="Left" VerticalAlignment="Top" Width="39" Margin="119,88,0,0">
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
             <ComboBoxItem>4</ComboBoxItem>
             <ComboBoxItem>5</ComboBoxItem>
         </ComboBox>
@@ -40,6 +42,9 @@
         <TextBox x:Name="textBoxLocation" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="119,156,0,0"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="119,192,0,0" Width="195" Height="23"/>
         <TextBox x:Name="textBoxType" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="119,192,0,0"/>
+        <Button x:Name="buttonSearch" Content="Поиск" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="119,238,0,0" Height="27" Click="buttonSearch_Click"/>
+        <Button x:Name="buttonLog" Content="Зарегестрироваться/Войти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="217" Margin="10.2,2,0,0" Height="27" Grid.Column="1" Click="buttonLog_Click"/>
+        <Button x:Name="buttonDelete" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="116.2,238,0,0" Height="27" Grid.Column="1"/>
 
     </Grid>
 </Window>
