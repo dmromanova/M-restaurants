@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace M_reastaurants
 {
+    [Serializable]
     class Restaurant
     {
         private string _name;

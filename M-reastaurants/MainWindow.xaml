@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M_reastaurants"
         mc:Ignorable="d"
-        Title="M-restaurants" Height="330.181" Width="578.453">
+        Title="M-restaurants" Height="1049.351" Width="578.453">
     <Grid Margin="0,0,4.2,0.4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -44,7 +44,9 @@
         <TextBox x:Name="textBoxType" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="119,192,0,0"/>
         <Button x:Name="buttonSearch" Content="Поиск" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="119,238,0,0" Height="27" Click="buttonSearch_Click"/>
         <Button x:Name="buttonLog" Content="Зарегестрироваться/Войти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="217" Margin="10.2,2,0,0" Height="27" Grid.Column="1" Click="buttonLog_Click"/>
-        <Button x:Name="buttonDelete" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="116.2,238,0,0" Height="27" Grid.Column="1"/>
+        <Button x:Name="buttonDelete" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="116.2,238,0,0" Height="27" Grid.Column="1" Click="buttonDelete_Click"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="456" Width="395" Margin="10,340,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="buttonRed" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="239,238,0,0" Height="28"/>
 
     </Grid>
 </Window>

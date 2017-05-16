@@ -11,8 +11,7 @@
         <TextBlock x:Name="textBlockPas" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Пароль" FontSize="16" VerticalAlignment="Top" Margin="10,84,0,0" Width="62" Height="21"/>
         <TextBox x:Name="textBoxLog" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" Margin="86,43,0,0" RenderTransformOrigin="0.5,0.5">
         </TextBox>
-        <TextBox x:Name="textBoxPas" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" Margin="86,86,0,0" RenderTransformOrigin="0.5,0.5">
-        </TextBox>
+        <TextBox x:Name="textBoxPas" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" Margin="86,86,0,0" RenderTransformOrigin="0.5,0.5" Foreground="White"/>
         <Button x:Name="buttonLog" Content="Войти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="86,121,0,0" Click="buttonLog_Click"/>
         <Button x:Name="buttonReg" Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Margin="166,121,0,0" Click="buttonReg_Click"/>
 
