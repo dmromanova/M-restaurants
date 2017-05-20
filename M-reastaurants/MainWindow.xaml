@@ -27,6 +27,7 @@
             <ComboBoxItem>5</ComboBoxItem>
         </ComboBox>
         <ComboBox x:Name="comboBoxService" HorizontalAlignment="Left" VerticalAlignment="Top" Width="39" Margin="119,88,0,0">
+            
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
             <ComboBoxItem>3</ComboBoxItem>
@@ -40,13 +41,15 @@
             <ComboBoxItem>более 5000р.</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="textBoxLocation" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Margin="119,156,0,0"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="119,192,0,0" Width="195" Height="23"/>
-        <TextBox x:Name="textBoxType" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="119,192,0,0"/>
-        <Button x:Name="buttonSearch" Content="Поиск" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93" Margin="119,238,0,0" Height="27" Click="buttonSearch_Click"/>
-        <Button x:Name="buttonLog" Content="Зарегестрироваться/Войти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="217" Margin="10.2,2,0,0" Height="27" Grid.Column="1" Click="buttonLog_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="119,192,0,0" Width="195" Height="23"/>
+        <TextBox x:Name="textBoxType" HorizontalAlignment="Left"  Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="119,192,0,0"/>
+        <Button x:Name="buttonSearch" Content="Поиск" HorizontalAlignment="Left" VerticalAlignment="Top" Width="104" Margin="119,238,0,0" Height="28" Click="buttonSearch_Click"/>
+        <Button x:Name="buttonLog" Content="Зарегестрироваться/Войти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="217" Margin="10.2,2,0,0" Height="27" Grid.Column="1" Click="buttonLog_Click" IsDefault="True"/>
         <Button x:Name="buttonDelete" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Margin="116.2,238,0,0" Height="27" Grid.Column="1" Click="buttonDelete_Click"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="456" Width="395" Margin="10,340,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="buttonRed" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="239,238,0,0" Height="28"/>
+        <Button x:Name="buttonRed" Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="104" Margin="228,238,0,0" Height="28" Click="buttonRed_Click"/>
+        <Button x:Name="buttonRef" Content="Очистить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="104" Margin="10,238,0,0" Height="28" Click="buttonRef_Click"/>
+        <Button x:Name="buttonAll" Click="buttonAll_Click" Content="Показать все" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103" Margin="11,279,0,0" Height="28"/>
 
     </Grid>
 </Window>

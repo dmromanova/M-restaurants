@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace M_reastaurants
 {
     /// <summary>
-    /// Interaction logic for DeleteWindow.xaml
+    /// Interaction logic for EditingWindow.xaml
     /// </summary>
-    public partial class DeleteWindow : Window
+    public partial class EditingWindow : Window
     {
-        public DeleteWindow()
+        public EditingWindow()
         {
             InitializeComponent();
         }
@@ -50,34 +50,37 @@ namespace M_reastaurants
                 formatter.Serialize(fs, _newrestaurant);
             }
         }
-        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        private void buttonEd_Click(object sender, RoutedEventArgs e)
         {
-
             LoadData();
-
-                for (int i = 0; i<_newrestaurant.Count; i++)
-                {
-                    if (textBoxDelete.Text==_newrestaurant[i].Name)
-                    {
-                        
-                        _newrestaurant.Remove(_newrestaurant[i]);
-                    textBoxDelete.Text = "";
-                        SaveData(); 
-                    MessageBox.Show("Ресторан был успешно удален");
-                    return;                        
-                    }
-                    
-                }
             for (int i = 0; i < _newrestaurant.Count; i++)
             {
-                if (textBoxDelete.Text != _newrestaurant[i].Name)
+                if (textBoxEd.Text == _newrestaurant[i].Name)
                 {
-                    textBoxDelete.Text = "";
+                    List<Restaurant> _restaurant = new List<Restaurant>();
+                    _restaurant.Add(_newrestaurant[i]);
+                    dataGrid.ItemsSource = _restaurant;
+                    textBoxEd.Text = "";                  
+                    return;
+                }
+
+            }
+            for (int i = 0; i < _newrestaurant.Count; i++)
+            {
+                if (textBoxEd.Text != _newrestaurant[i].Name)
+                {
+                    textBoxEd.Text = "";
                     MessageBox.Show("Такого ресторана не существует");
                     return;
                 }
             }
-            }
-}
-    }
 
+        }
+
+        private void buttonChange_Click(object sender, RoutedEventArgs e)
+        {
+            
+            SaveData();
+        }
+    }
+}
