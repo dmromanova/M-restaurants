@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,23 +12,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace M_reastaurants
 {
     /// <summary>
-    /// Interaction logic for LogWindow.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LogWindow : Window
+    public partial class LoginPage : Page
     {
         BinaryFormatter formatter = new BinaryFormatter();
         const string FileName = "password.txt";
         List<Password> _password;
 
 
-        public LogWindow()
+        public LoginPage()
         {
             InitializeComponent();
 
@@ -59,7 +60,7 @@ namespace M_reastaurants
         private void RefreshWindow()
         {
             textBoxLog.Text = "";
-            textBoxPas.Text = "";
+            passwordBoxPas.Password = "";
         }
 
 
@@ -67,30 +68,32 @@ namespace M_reastaurants
         {
 
             LoadData();
-
-            if (textBoxLog.Text != "" && textBoxPas.Text != "")
+            List<Password> lp = new List<Password>();
+            if (textBoxLog.Text == "" || passwordBoxPas.Password == "")
+            {
+                MessageBox.Show("Для входа введите логин и пароль");
+                return;
+            }
+            if (textBoxLog.Text != "" && passwordBoxPas.Password != "")
             {
                 foreach (Password p in _password)
                 {
 
-                    if (textBoxLog.Text == p.Login && textBoxPas.Text == p.Psword)
+                    if (textBoxLog.Text == p.Login && passwordBoxPas.Password == p.Psword)
                     {
-                        MessageBox.Show("Авторизация прошла успешно");
+                        lp.Add(p);
+                        NavigationService.Navigate(Pages.MainPage);
                         return;
                     }
-                    else if (textBoxLog.Text != p.Login && textBoxPas.Text != p.Psword)
-                    {
-                        MessageBox.Show("Проверьте правильность логина и пароля");
-                        RefreshWindow();
-                        return;
-                    }
+                }         
+                            
+            
+                if (lp.Count == 0)
+                {
+                    MessageBox.Show("Проверьте правильность логина и пароля");
+                    RefreshWindow();
+                    return;
                 }
-            }
-            else if (textBoxLog.Text == "" || textBoxPas.Text == "")
-            {
-                MessageBox.Show("Если вы зарегестрированы, для входа введите логин и пароль");
-                RefreshWindow();
-                return;
             }
         }
 
@@ -99,43 +102,43 @@ namespace M_reastaurants
         private void buttonReg_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
-            if (textBoxLog.Text == "" || textBoxPas.Text == "")
+            if (textBoxLog.Text == "" || passwordBoxPas.Password == "")
             {
                 MessageBox.Show("Для регистрации введите логин и пароль");
                 return;
             }
-            else if (textBoxLog.Text != "" && textBoxPas.Text != "")
+            
+            if ( textBoxLog.Text.Trim() == "" || passwordBoxPas.Password.Trim() == "")
             {
-                //List<Password> _newpassword = new List<Password>();
-                foreach (Password p in _password)
-                {
-                    if (textBoxLog.Text != p.Login && textBoxPas.Text != p.Psword)
-                    {
-
-                        Password user = new Password(textBoxLog.Text, textBoxPas.Text);
-                        _password.Add(user);
-                        RefreshWindow();
-                        MessageBox.Show("Регстрация прошла успешно");
-                        return;
-
-                    }
-                    SaveData();
-                }
+                MessageBox.Show("Убедитесь, что у вас нет пробелов в Логине и Пароле");
+                return;
             }
-            else if (textBoxLog.Text != "" && textBoxPas.Text != "")
+
+            if (textBoxLog.Text != "" && passwordBoxPas.Password != "")
             {
                 foreach (Password p in _password)
                 {
-                    if ((textBoxLog.Text == p.Login && textBoxPas.Text == p.Psword) || (textBoxLog.Text == p.Login && textBoxPas.Text != p.Psword))
+                    if (textBoxLog.Text == p.Login)
                     {
                         RefreshWindow();
                         MessageBox.Show("Пользователь с таким логином уже существует");
                         return;
                     }
                 }
-            }
-            }
-        }
+                    
+                        Password user = new Password(textBoxLog.Text, passwordBoxPas.Password);
+                        _password.Add(user);
+                        RefreshWindow();
+                        MessageBox.Show("Регстрация прошла успешно");
+                        SaveData();
+                        NavigationService.Navigate(Pages.MainPage);
+                        return;
+                    
+
+                }
+            }     
+
+       
+    }
     }
 
-    

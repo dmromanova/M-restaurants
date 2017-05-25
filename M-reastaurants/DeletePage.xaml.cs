@@ -1,30 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace M_reastaurants
 {
     /// <summary>
-    /// Interaction logic for DeleteWindow.xaml
+    /// Interaction logic for DeletePage.xaml
     /// </summary>
-    public partial class DeleteWindow : Window
+    public partial class DeletePage : Page
     {
-        public DeleteWindow()
+        public DeletePage()
         {
             InitializeComponent();
         }
+
         List<Restaurant> _newrestaurant;
         private void LoadData()
         {
@@ -55,19 +47,20 @@ namespace M_reastaurants
 
             LoadData();
 
-                for (int i = 0; i<_newrestaurant.Count; i++)
+            for (int i = 0; i < _newrestaurant.Count; i++)
+            {
+                if (textBoxDelete.Text == _newrestaurant[i].Name)
                 {
-                    if (textBoxDelete.Text==_newrestaurant[i].Name)
-                    {
-                        
-                        _newrestaurant.Remove(_newrestaurant[i]);
+
+                    _newrestaurant.Remove(_newrestaurant[i]);
                     textBoxDelete.Text = "";
-                        SaveData(); 
+                    SaveData();
                     MessageBox.Show("Ресторан был успешно удален");
-                    return;                        
-                    }
-                    
+                    NavigationService.Navigate(Pages.MainPage);
+                    return;
                 }
+
+            }
             for (int i = 0; i < _newrestaurant.Count; i++)
             {
                 if (textBoxDelete.Text != _newrestaurant[i].Name)
@@ -77,7 +70,14 @@ namespace M_reastaurants
                     return;
                 }
             }
-            }
-}
-    }
+        }
 
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage mn = new MainPage();
+            NavigationService.Navigate(mn);
+            return;
+            
+        }
+    }
+}
